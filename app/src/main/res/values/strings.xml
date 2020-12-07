@@ -25,4 +25,6 @@ Blurbs are important because they quickly give potential business contacts the m
         humor or a personal story to help the reader become familiar with you.
     </string>
     <string name="image_bio">Bio Image</string>
+    <string name="nickname_hint">Enter your nickname</string>
+    <string name="complete_button">Complete!</string>
 </resources>
