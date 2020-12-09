@@ -10,25 +10,34 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import androidx.databinding.DataBindingUtil
+import com.rungenes.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding:ActivityMainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
         val buttonNickName:Button = findViewById(R.id.complete_button)
 
         buttonNickName.setOnClickListener {
-            nickName(it)
+           // nickName(it)
+
+
+
+            binding.nicknameTextview.text=binding.nicknameEdittext.text
+            binding.nicknameEdittext.visibility =View.GONE
+            binding.completeButton.visibility =View.GONE
+            binding.nicknameTextview.visibility = View.VISIBLE
+
+
         }
-
-
 
 
     }
 
-    fun nickName(view:View){
+ /*   fun nickName(view:View){
 
         val editTextNickname:EditText = findViewById(R.id.nickname_edittext)
         val textViewNickname:TextView =findViewById(R.id.nickname_textview)
@@ -44,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    }
+    }*/
 
 
 }
