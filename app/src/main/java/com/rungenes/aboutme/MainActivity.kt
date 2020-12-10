@@ -14,22 +14,21 @@ import androidx.databinding.DataBindingUtil
 import com.rungenes.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    lateinit var binding: ActivityMainBinding
+    private val myName: MyName = MyName("Samuel Nyambura")
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
-        val binding:ActivityMainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        val buttonNickName:Button = findViewById(R.id.complete_button)
+        //  val buttonNickName:Button = findViewById(R.id.complete_button)
 
-        buttonNickName.setOnClickListener {
-           // nickName(it)
-
+        binding.myName = myName
 
 
-            binding.nicknameTextview.text=binding.nicknameEdittext.text
-            binding.nicknameEdittext.visibility =View.GONE
-            binding.completeButton.visibility =View.GONE
-            binding.nicknameTextview.visibility = View.VISIBLE
+        binding.completeButton.setOnClickListener {
+            nickName(it)
 
 
         }
@@ -37,23 +36,25 @@ class MainActivity : AppCompatActivity() {
 
     }
 
- /*   fun nickName(view:View){
+    fun nickName(view: View) {
 
-        val editTextNickname:EditText = findViewById(R.id.nickname_edittext)
-        val textViewNickname:TextView =findViewById(R.id.nickname_textview)
 
-        textViewNickname.text = editTextNickname.text
-        editTextNickname.visibility = View.GONE
-        view.visibility =View.GONE
-        textViewNickname.visibility = View.VISIBLE
+        binding.apply {
+            myName?.nickName = nicknameEdittext.text.toString()
+            nicknameTextview.text = nicknameEdittext.text
+            nicknameEdittext.visibility = View.GONE
+            completeButton.visibility = View.GONE
+            nicknameTextview.visibility = View.VISIBLE
+
+        }
+
 
         // Hide the keyboard.
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
 
 
-
-    }*/
+    }
 
 
 }
