@@ -41,12 +41,15 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
             myName?.nickName = nicknameEdittext.text.toString()
+            invalidateAll()
             nicknameTextview.text = nicknameEdittext.text
             nicknameEdittext.visibility = View.GONE
             completeButton.visibility = View.GONE
             nicknameTextview.visibility = View.VISIBLE
+            
 
         }
+
 
 
         // Hide the keyboard.
